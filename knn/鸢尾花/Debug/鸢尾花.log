@@ -1,0 +1,7 @@
+﻿  鸢尾花.c
+鸢尾花.obj : error LNK2019: 无法解析的外部符号 _tempdata，该符号在函数 _main 中被引用
+鸢尾花.obj : error LNK2019: 无法解析的外部符号 _loaddata，该符号在函数 _main 中被引用
+鸢尾花.obj : error LNK2019: 无法解析的外部符号 _computedistance，该符号在函数 _main 中被引用
+鸢尾花.obj : error LNK2019: 无法解析的外部符号 _countlabel，该符号在函数 _main 中被引用
+鸢尾花.obj : error LNK2019: 无法解析的外部符号 _cmp，该符号在函数 _main 中被引用
+D:\研究生学习情况\c语言\Code\knn\Debug\鸢尾花.exe : fatal error LNK1120: 5 个无法解析的外部命令
