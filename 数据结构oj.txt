@@ -1,0 +1,67 @@
+1.https://www.nowcoder.com/practice/4b91205483694f449f94c179883c1fef?tpId=60&tqId=29483&rp=1&ru=%2Factivity%2Foj&qru=%2Fta%2Ftsing-kaoyan%2Fquestion-ranking&tab=answerKey
+二叉树的创建和遍历
+#include <stdio.h>
+#include <string.h>
+#define BINELMETYPE char
+//1.建立二叉树的结构体
+typedef struct BinTree
+{
+    BINELMETYPE data;
+    struct BinTree* leftchild;
+    struct BinTree* rightchild;
+}BinTree;
+BinTree* CreateBinTree(BINELMETYPE *str,int *index);
+void BT_Inorder(BinTree * pst);
+BinTree* CreateBinTree(BINELMETYPE *str,int *index)
+{
+    BinTree* p=(BinTree*)malloc(sizeof(BinTree));
+    p->data=str[(*index)++];
+    if(p->data=='#'||p->data =="\0")
+        return NULL;
+    else
+    {
+         p->leftchild=CreateBinTree(str,index);
+         p->rightchild=CreateBinTree(str, index);
+        return p;
+    }
+}
+void BT_Inorder(BinTree * pst)
+{
+    if(pst !=NULL)
+    {
+        BT_Inorder(pst->leftchild);
+        printf("%c ",pst->data);
+        BT_Inorder(pst->rightchild);
+    }       
+}
+
+int main()
+{
+    BINELMETYPE str1[101];
+    BinTree* p=NULL;
+    int index=0;
+    while(scanf("%s",str1)!=EOF)
+    {
+        p=CreateBinTree(str1,&index);
+        BT_Inorder(p);
+    }
+    return 0;
+}
+2.单值二叉树
+
+bool Traversal(struct TreeNode* root,int val)
+ {
+    if(root == NULL)
+        return true;
+    if(root->val !=val)
+        return false;
+    bool p1=Traversal(root->left,val);
+    bool p2=Traversal(root->right,val);
+    return p1 && p2;
+ }
+bool isUnivalTree(struct TreeNode* root){
+
+    int val;
+    val=root->val;
+   return Traversal(root,val);
+}
